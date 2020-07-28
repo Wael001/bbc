@@ -47,7 +47,7 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const developers = ["521783741576642560", "505188754168872960"];
+const developers = ["code id", "code id"];
 client.on("message", message => {
   var argresult = message.content
     .split(` `)
@@ -97,7 +97,7 @@ client.on("message", async message => {
                 الاوامر  ❤❤&❤❤  Command
              ✅ برودكاست عادي : ${prefix}bc 🔴
          =============================
-            📛 **SUPPORT_Bot_CLANGC** 📛
+            📛 **SUPPORT_Bot_Clan SLD★** 📛
              📛 https://discord.gg/hTS2d4A 📛
               **`);
     message.channel.sendEmbed(help);
