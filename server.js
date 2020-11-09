@@ -1,20 +1,19 @@
 const http = require("http");
 const express = require("express");
 const app = express();
-var adminprefix = "!";
 
 app.get("/", (request, response) => {
   response.sendStatus(200);
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`https://editthis.glitch.me/`);
+  http.get(`https://nameproject.glitch.me/`);
 }, 280000);
 
 // كل البكجات الي ممكن تحتجها في اي بوت
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
-const { TOKEN, YT_API_KEY, prefix, devs } = require("./config");
+const { TOKEN, prefix, serverlogo, nameproject, colorbc } = require("./config");
 const client = new Client({ disableEveryone: true });
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
@@ -47,72 +46,33 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const developers = ["code id", "code id"];
+client.on("guildCreate", guild => {
+  var embed = new Discord.RichEmbed()
+    .setColor("")
+    .setDescription(
+      `BOT BRODCAST v1 BY RYO | bot: I have joined the server | Thanks for your confidence in Ryo`
+    );
+  guild.owner.send(embed);
+});
+
+const developers = ["557657031713095705"];
+
 client.on("message", message => {
-  var argresult = message.content
-    .split(` `)
-    .slice(1)
-    .join(" ");
-  if (!developers.includes(message.author.id)) return;
-
-  if (message.content.startsWith(adminprefix + "setg")) {
-    client.user.setGame(argresult);
-    message.channel.send(`**✅   ${argresult}**`);
-  } else if (message.content === adminprefix + "leave") {
-    message.guild.leave();
-  } else if (message.content.startsWith(adminprefix + "setw")) {
-    client.user.setActivity(argresult, { type: "WATCHING" });
-    message.channel.send(`**✅   ${argresult}**`);
-  } else if (message.content.startsWith(adminprefix + "setl")) {
-    client.user.setActivity(argresult, { type: "LISTENING" });
-    message.channel.send(`**✅   ${argresult}**`);
-  } else if (message.content.startsWith(adminprefix + "sets")) {
-    client.user.setGame(argresult, "https://www.twitch.tv/dream");
-    message.channel.send(`**✅**`);
-  }
-  if (message.content.startsWith(adminprefix + "setname")) {
-    client.user.setUsername(argresult).then;
-    message.channel.send(`Changing The Name To ..**${argresult}** `);
-  } else if (message.content.startsWith(adminprefix + "setava")) {
-    client.user.setAvatar(argresult);
-    message.channel.send(`Changing The Avatar To :**${argresult}** `);
-  }
-});
-
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "banned")) {
-    if (!message.guild) return;
-    message.guild.fetchBans().then(bans => {
-      let b = bans.size;
-      let bb = bans.map(a => `${a}`).join(" - ");
-      message.channel.send(`**\`${b}\` | ${bb}**`);
-    });
-  }
-});
-
-client.on("message", async message => {
   if (message.content.startsWith(prefix + "help")) {
-    let help = new Discord.RichEmbed().setColor("0x5016f3")
-      .setDescription(`** ❤❤ By US OF GC ❤❤
-                الاوامر  ❤❤&❤❤  Command
-             ✅ برودكاست عادي : ${prefix}bc 🔴
-         =============================
-            📛 **SUPPORT_Bot_Clan SLD★** 📛
-             📛 https://discord.gg/hTS2d4A 📛
-              **`);
-    message.channel.sendEmbed(help);
-  }
-});
+    let embed = new Discord.RichEmbed()
+      .setColor("#ff0000")
+      .setTitle("Bot Fivem brodcast")
+      .setDescription(" ```My Prfix (-)``` ")
+      .addField("cmd", "brodcast: bc")
+      .setThumbnail(
+        "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
+      )
+      .setFooter(
+        "devloper ! Ryo#9999",
+        "https://cdn.discordapp.com/avatars/557657031713095705/a_8531a8f0ab02f7bf3644b6ccce86ec1a.gif?size=1024"
+      );
 
-client.on("message", function(message) {
-  let prefix = "!";
-  let args = message.content
-    .split(" ")
-    .slice(1)
-    .join(" ");
-  if (message.content.startsWith(prefix + "say")) {
-    if (!args) return;
-    message.channel.send(`** ${args}**`);
+    message.channel.send(embed);
   }
 });
 
@@ -149,18 +109,29 @@ client.on("message", async message => {
         yes.on("collect", v => {
           m.delete();
           message.channel
-            .send(
-              `:ballot_box_with_check: | Done ... The Broadcast Message Has Been Sent For ${message.guild.memberCount} Members`
-            )
-            .then(msg => msg.delete(5000));
+            .sendMessage("", {
+              embed: {
+                title: `تم ارسال رسالتك:ballot_box_with_check:   ... محتوى الرسالة هو : **${args}**  :arrow_right: `,
+                description: ` وعدد مستلمين الرسالة: **${message.guild.memberCount}**:busts_in_silhouette:`,
+                color: 3003135,
+                footer: {}
+              }
+            })
+            .then(msg => {
+              msg.delete(3000);
+            });
           message.guild.members.forEach(member => {
             let bc = new Discord.RichEmbed()
-              .setColor("RANDOM")
-              .setThumbnail(message.author.avatarURL)
-              .setTitle("Broadcast")
-              .addField("Server", message.guild.name)
-              .addField("Sender", message.author.username)
-              .addField("Message", args);
+              .setColor(colorbc)
+              .setThumbnail(serverlogo)
+              .setAuthor(message.author.username, message.author.avatarURL)
+              .addField("● From", message.guild.name, true)
+              .addField("● TO", `<@${member.user.id}>`, true)
+              .addField(":mega:Message", args)
+              .setFooter(
+                "devloper ! Ryo#9999",
+                "https://cdn.discordapp.com/avatars/557657031713095705/a_8531a8f0ab02f7bf3644b6ccce86ec1a.gif?size=1024"
+              );
 
             member.sendEmbed(bc);
           });
@@ -168,93 +139,18 @@ client.on("message", async message => {
         no.on("collect", v => {
           m.delete();
           message.channel
-            .send("**Broadcast Canceled.**")
-            .then(msg => msg.delete(3000));
-        });
-      });
-  }
-  if (command == "bco") {
-    if (!message.member.hasPermission("ADMINISTRATOR")) {
-      return message.channel.send("**للأسف لا تمتلك صلاحية `ADMINISTRATOR`**");
-    }
-    if (!args) {
-      return message.reply("**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**");
-    }
-    message.channel
-      .send(
-        `**هل أنت متأكد من إرسالك البرودكاست؟\nمحتوى البرودكاست: \`${args}\`**`
-      )
-      .then(m => {
-        m.react("✅").then(() => m.react("❌"));
-
-        let yesFilter = (reaction, user) =>
-          reaction.emoji.name == "✅" && user.id == message.author.id;
-        let noFiler = (reaction, user) =>
-          reaction.emoji.name == "❌" && user.id == message.author.id;
-
-        let yes = m.createReactionCollector(yesFilter);
-        let no = m.createReactionCollector(noFiler);
-
-        yes.on("collect", v => {
-          m.delete();
-          message.channel
-            .send(
-              `:ballot_box_with_check: | Done ... The Broadcast Message Has Been Sent For ${
-                message.guild.members.filter(
-                  r => r.presence.status !== "offline"
-                ).size
-              } Members`
-            )
-            .then(msg => msg.delete(5000));
-          message.guild.members
-            .filter(r => r.presence.status !== "offline")
-            .forEach(member => {
-              let bco = new Discord.RichEmbed()
-                .setColor("RANDOM")
-                .setThumbnail(message.author.avatarURL)
-                .setTitle("Broadcast")
-                .addField("Server", message.guild.name)
-                .addField("Sender", message.author.username)
-                .addField("Message", args);
-
-              member.sendEmbed(bco);
+            .sendMessage("", {
+              embed: {
+                title: `تم ارسال إلغاء رسالتك:x:`,
+                description: ` محتوى الرسالة هو : **${args}**  :arrow_right: `,
+                color: 16711680,
+                footer: {}
+              }
+            })
+            .then(msg => {
+              msg.delete(3000);
             });
         });
-        no.on("collect", v => {
-          m.delete();
-          message.channel
-            .send("**Broadcast Canceled.**")
-            .then(msg => msg.delete(3000));
-        });
-      });
-  }
-});
-
-client.on("message", message => {
-  //clear
-  var args = message.content.substring(prefix.length).split(" ");
-  if (message.content.startsWith(prefix + "clear")) {
-    if (!message.channel.guild)
-      return message.reply("**? اسف لكن هذا الامر للسيرفرات فقط **");
-    if (!message.member.hasPermission("MANAGE_MESSAGES"))
-      return message.reply("**?  لا يوجد لديك صلاحية لمسح الشات**");
-    var msg;
-    msg = parseInt();
-
-    message.channel
-      .fetchMessages({ limit: msg })
-      .then(messages => message.channel.bulkDelete(messages))
-      .catch(console.error);
-    message.channel
-      .sendMessage("", {
-        embed: {
-          title: "``تــم مسح الشات ``",
-          color: 0x5016f3,
-          footer: {}
-        }
-      })
-      .then(msg => {
-        msg.delete(3000);
       });
   }
 });
