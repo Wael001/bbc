@@ -118,7 +118,7 @@ client.on("message", async message => {
               }
             })
             .then(msg => {
-              msg.delete(3000);
+              msg.delete(10000);
             });
           message.guild.members.forEach(member => {
             let bc = new Discord.RichEmbed()
@@ -141,14 +141,14 @@ client.on("message", async message => {
           message.channel
             .sendMessage("", {
               embed: {
-                title: `تم ارسال إلغاء رسالتك:x:`,
+                title: `تم إلغاء رسالتك:x:`,
                 description: ` محتوى الرسالة هو : **${args}**  :arrow_right: `,
                 color: 16711680,
                 footer: {}
               }
             })
             .then(msg => {
-              msg.delete(3000);
+              msg.delete(10000);
             });
         });
       });
