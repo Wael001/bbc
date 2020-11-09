@@ -48,7 +48,7 @@ client.on("ready", () => {
 
 client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed()
-    .setColor("")
+    .setColor("RANDOM")
     .setDescription(
       `BOT BRODCAST v1 BY RYO | bot: I have joined the server | Thanks for your confidence in Ryo`
     );
