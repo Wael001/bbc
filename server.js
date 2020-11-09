@@ -7,7 +7,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`https://nameproject.glitch.me/`);
+  http.get(`https://${nameproject}.glitch.me/`);
 }, 280000);
 
 // كل البكجات الي ممكن تحتجها في اي بوت
@@ -43,7 +43,7 @@ const queue = new Map();
 var table = require("table").table;
 const Discord = require("discord.js");
 client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client.user.tag} By RYO!`);
 });
 
 client.on("guildCreate", guild => {
