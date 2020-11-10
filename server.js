@@ -69,8 +69,12 @@ client.on("message", message => {
     let embed = new Discord.RichEmbed()
       .setColor("#ff0000")
       .setTitle("Bot Fivem brodcast")
-      .setDescription(" ```My Prfix (-)``` ")
-      .addField("cmd", "brodcast: bc")
+      .setDescription(`
+
+```My Prefix (${prefix}) ```
+
+`)
+      .addField("cmd", `**brodcast**: ${CMD1}`)
       .setThumbnail(
         "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       )
