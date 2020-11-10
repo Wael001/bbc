@@ -13,7 +13,14 @@ setInterval(() => {
 // كل البكجات الي ممكن تحتجها في اي بوت
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
-const { TOKEN, prefix, serverlogo, nameproject, colorbc } = require("./config");
+const {
+  TOKEN,
+  prefix,
+  serverlogo,
+  nameproject,
+  colorbc,
+  CMD1
+} = require("./config");
 const client = new Client({ disableEveryone: true });
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
@@ -84,7 +91,7 @@ client.on("message", async message => {
     .split(" ")
     .slice(1)
     .join(" ");
-  if (command == "bc") {
+  if (command == CMD1) {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send("**للأسف لا تمتلك صلاحية `ADMINISTRATOR`**");
     }
@@ -123,7 +130,7 @@ client.on("message", async message => {
           message.guild.members.forEach(member => {
             let bc = new Discord.RichEmbed()
               .setColor(colorbc)
-              .setThumbnail(serverlogo)
+              .setThumbnail(serverlogo) //message.guild.iconURL
               .setAuthor(message.author.username, message.author.avatarURL)
               .addField("● From", message.guild.name, true)
               .addField("● TO", `<@${member.user.id}>`, true)
