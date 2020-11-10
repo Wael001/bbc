@@ -1,7 +1,7 @@
 module.exports = {
   TOKEN: "Nzc0NzE4MDIzNzkzMTE1MTM3.X6b2Yg.1n4GrgsiHBu7OMPTz90OHux77M0", //توكن بوتك
   prefix: "-", //بادئة البوت
-  CMD1: "bc", // الكود حق البوت
+  CMD1: "tc", // الكود حق البوت
   nameproject: "brodcast-v1-by-ryo", //اسم البروجكت
   colorbc: "RANDOM", // هنا لون البرود كاست
   serverlogo:
