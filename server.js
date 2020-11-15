@@ -76,7 +76,7 @@ client.on("message", message => {
       )
       .setFooter(
         "devloper ! Ryo#9999",
-        "https://cdn.discordapp.com/avatars/557657031713095705/a_8531a8f0ab02f7bf3644b6ccce86ec1a.gif?size=1024"
+        "https://images-ext-2.discordapp.net/external/GHgDlEdFAIHBDIuGf_4ezlFLvzfonouXKiTnlYXMrhg/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/557657031713095705/888308dd3dfc075b97720be72e876913.png"
       );
 
     message.channel.send(embed);
@@ -137,7 +137,7 @@ client.on("message", async message => {
               .addField(":mega:Message", args)
               .setFooter(
                 "devloper ! Ryo#9999",
-                "https://cdn.discordapp.com/avatars/557657031713095705/a_8531a8f0ab02f7bf3644b6ccce86ec1a.gif?size=1024"
+                "https://images-ext-2.discordapp.net/external/GHgDlEdFAIHBDIuGf_4ezlFLvzfonouXKiTnlYXMrhg/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/557657031713095705/888308dd3dfc075b97720be72e876913.png"
               );
 
             member.sendEmbed(bc);
