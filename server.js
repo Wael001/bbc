@@ -75,7 +75,7 @@ client.on("message", message => {
         "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       )
       .setFooter(
-        "By Made Store 69",
+        "Made By Store 69",
         "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
       );
 
@@ -136,7 +136,7 @@ client.on("message", async message => {
               .addField("● TO", `<@${member.user.id}>`, true)
               .addField(":mega:Message", args)
               .setFooter(
-                "By Made Store 69",
+                "Made By Store 69",
                 "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
               );
 
@@ -161,33 +161,6 @@ client.on("message", async message => {
       });
   }
 });
-
-module.exports = (client) => {
-  const channelIds = [
-     '723819742502191165', // testing
-  ]
-
-  const addReactions = (message) => {
-    message.react('👍')
-
-    setTimeout(() => {
-      message.react('👎')
-    }, 750)
-  }
-
-  client.on('message', async (message) => {
-    if (channelIds.includes(message.channel.id)) {
-      addReactions(message)
-    } else if (message.content.toLowerCase() === '!poll') {
-      await message.delete()
-
-      const fetched = await message.channel.messages.fetch({ limit: 1 })
-      if (fetched && fetched.first()) {
-        addReactions(fetched.first())
-      }
-    }
-  })
-}
 
 console.log("==================================");
 console.log("1");
