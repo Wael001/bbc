@@ -75,8 +75,8 @@ client.on("message", message => {
         "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       )
       .setFooter(
-        "devloper ! Ryo#9999",
-        "https://images-ext-2.discordapp.net/external/GHgDlEdFAIHBDIuGf_4ezlFLvzfonouXKiTnlYXMrhg/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/557657031713095705/888308dd3dfc075b97720be72e876913.png"
+        "By Made Store 69",
+        "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
       );
 
     message.channel.send(embed);
@@ -136,8 +136,8 @@ client.on("message", async message => {
               .addField("● TO", `<@${member.user.id}>`, true)
               .addField(":mega:Message", args)
               .setFooter(
-                "devloper ! Ryo#9999",
-                "https://images-ext-2.discordapp.net/external/GHgDlEdFAIHBDIuGf_4ezlFLvzfonouXKiTnlYXMrhg/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/557657031713095705/888308dd3dfc075b97720be72e876913.png"
+                "By Made Store 69",
+                "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
               );
 
             member.sendEmbed(bc);
