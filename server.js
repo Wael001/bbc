@@ -162,6 +162,28 @@ client.on("message", async message => {
   }
 });
 
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "bc")) {
+    var channelId = message.guild.channels.cache.find(r => {
+      r.name === "777806174099079208";
+    });
+    let embed = new Discord.RichEmbed()
+      .setColor("#ff0000")
+      .setTitle("Bot Fivem brodcast")
+      .setDescription(`\`My Prefix (${prefix})\``)
+      .addField("cmd", `**brodcast**: \`${CMD1}\``)
+      .setThumbnail(
+        "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
+      )
+      .setFooter(
+        "Made By Store 69",
+        "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
+      );
+
+    message.channel.send(embed);
+  }
+});
+
 console.log("==================================");
 console.log("1");
 console.log("2");
