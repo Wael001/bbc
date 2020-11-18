@@ -53,6 +53,8 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag} By RYO!`);
 });
 
+
+
 client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed()
     .setColor("RANDOM")
