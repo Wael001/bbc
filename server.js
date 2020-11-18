@@ -40,10 +40,7 @@ const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat"); //npm i dateformat
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const hastebins = require("hastebin-gen");
-const getYoutubeID = require("get-youtube-id");
-const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 const pretty = require("pretty-ms");
 client.login(TOKEN);
 const queue = new Map();
@@ -52,8 +49,6 @@ const Discord = require("discord.js");
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag} By RYO!`);
 });
-
-
 
 client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed()
@@ -143,6 +138,7 @@ client.on("message", async message => {
               );
 
             member.sendEmbed(bc);
+            console.log("There is someone using the command: bc");
           });
         });
         no.on("collect", v => {
@@ -186,17 +182,6 @@ client.on("message", message => {
   }
 });
 
-console.log("==================================");
-console.log("1");
-console.log("2");
-console.log("3");
-console.log("=========> Bot Online <=========");
-console.log("========> TestBot <========");
-console.log("=======> Token Bot **** <=======");
-console.log("3");
-console.log("2");
-console.log("1");
-console.log("====================================");
-console.log("Bot Online 24/7");
+console.log("Bot is Online ");
 ///
 //الاكواد
