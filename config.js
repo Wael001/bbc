@@ -1,5 +1,5 @@
 module.exports = {
-  TOKEN: "NzMwMjI3NzAxODg5MTA1OTkw.XwUbiw.6izl0VbFnxuYla2hYRwDOXCUdIQ", //توكن بوتك
+  TOKEN: "Nzc3OTE1MjQ0MTgxODQ4MDg0.X7KYBw.QywoZKqkWd3eVKVHZHArxBAFW8g", //توكن بوتك
   prefix: "-", //بادئة البوت
   CMD1: "bc", // الكود حق البوت
   nameproject: "brodcast-v1-by-ryo", //اسم البروجكت

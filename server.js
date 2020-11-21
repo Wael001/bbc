@@ -128,7 +128,7 @@ client.on("message", async message => {
             let bc = new Discord.RichEmbed()
               .setColor(colorbc)
               .setThumbnail(serverlogo) //message.guild.iconURL
-              .setAuthor(message.author.username, message.author.avatarURL)
+              .setAuthor(message.author.username, message.author.user)
               .addField("● From", message.guild.name, true)
               .addField("● TO", `<@${member.user.id}>`, true)
               .addField(":mega:Message", args)
@@ -160,19 +160,21 @@ client.on("message", async message => {
   }
 });
 
+var list = [
+      'https://cdn.discordapp.com/attachments/767451890316869673/779550461488922644/GIF_18-11-20_02-37-43_.gif',
+]
+var rand = list[Math.floor(Math.random() * list.length)];
+
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "bc")) {
+  if (message.content.startsWith(prefix + "avatar")) {
     var channelId = message.guild.channels.cache.find(r => {
       r.name === "777806174099079208";
     });
     let embed = new Discord.RichEmbed()
       .setColor("#ff0000")
       .setTitle("Bot Fivem brodcast")
-      .setDescription(`\`My Prefix (${prefix})\``)
-      .addField("cmd", `**brodcast**: \`${CMD1}\``)
-      .setThumbnail(
-        "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
-      )
+      .setDescription("this avatar")
+      .setImage(rand)
       .setFooter(
         "Made By Store 69",
         "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
