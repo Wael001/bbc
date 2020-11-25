@@ -160,6 +160,15 @@ client.on("message", async message => {
   }
 });
 
+let channelID = "728040983794810940";
+
+client.on("message", async message => {
+  if (message.channel.id === channelID) {
+    message.react("781103771148484639");
+    message.react("💕");
+  }
+});
+
 console.log("Bot is Online ");
 ///
 //الاكواد
