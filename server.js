@@ -101,9 +101,11 @@ client.on("message", async message => {
       .setTitle(`الرسالة هي : **${args}** `)
       .setDescription()
       .addField("ارسال إلى جميع الاعضاء", "👥", true)
+      .addField("ارسال إلى جميع الاعضاء بدون ايمبلد", "👥", true)
       .addField("ارسال إلى هذا الروم", "🌐", true)
-      .addField("ارسال إلى الخاص", "📨", false)
-      .addField("إلغاء الرسالة", "❌", false)
+      .addField("ارسال إلى هذا الروم بدون ايمبلد", "💫", true)
+      .addField("ارسال إلى الخاص", "📨", true)
+      .addField("إلغاء الرسالة", "❌", true)
       .setThumbnail(
         "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       )
@@ -115,6 +117,7 @@ client.on("message", async message => {
     message.channel.send(embed).then(m => {
       m.react("👥")
         .then(() => m.react("🌐"))
+        .then(() => m.react("💫"))
         .then(() => m.react("📨"))
         .then(() => m.react("❌"));
 
@@ -122,14 +125,17 @@ client.on("message", async message => {
         reaction.emoji.name == "👥" && user.id == message.author.id;
       let sendchanelFilter = (reaction, user) =>
         reaction.emoji.name == "🌐" && user.id == message.author.id;
+      let sendchanesFilter = (reaction, user) =>
+        reaction.emoji.name == "💫" && user.id == message.author.id;
       let senddmFilter = (reaction, user) =>
         reaction.emoji.name == "📨" && user.id == message.author.id;
       let noFiler = (reaction, user) =>
         reaction.emoji.name == "❌" && user.id == message.author.id;
 
       let all = m.createReactionCollector(allFilter);
-      let senddm = m.createReactionCollector(senddmFilter);
       let sendchanel = m.createReactionCollector(sendchanelFilter);
+      let sendchanes = m.createReactionCollector(sendchanesFilter);
+      let senddm = m.createReactionCollector(senddmFilter);
       let no = m.createReactionCollector(noFiler);
 
       all.on("collect", v => {
@@ -198,7 +204,7 @@ client.on("message", async message => {
         message.channel.sendEmbed(say);
         message.delete();
       });
-            sendchanel.on("collect", v => {
+      sendchanes.on("collect", v => {
         m.delete();
         message.channel
           .sendMessage("", {
@@ -212,7 +218,16 @@ client.on("message", async message => {
           .then(msg => {
             msg.delete(10000);
           });
-        
+        if (!message.channel.guild)
+          return message.channel
+            .send("**هذا الأمر فقط للسيرفرات**")
+            .then(m => m.delete(5000));
+        if (!message.member.hasPermission("ADMINISTRATOR"))
+          return message.channel.send(
+            "**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`"
+          );
+        message.channel.send(args);
+        message.delete();
       });
       no.on("collect", v => {
         m.delete();
