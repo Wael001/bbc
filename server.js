@@ -101,7 +101,7 @@ client.on("message", async message => {
       .setTitle(`الرسالة هي : **${args}** `)
       .setDescription()
       .addField("ارسال إلى جميع الاعضاء", "👥", true)
-      .addField("ارسال إلى جميع الاعضاء بدون ايمبلد", "👥", true)
+      .addField("ارسال إلى جميع الاعضاء بدون ايمبلد", "🤩", true)
       .addField("ارسال إلى هذا الروم", "🌐", true)
       .addField("ارسال إلى هذا الروم بدون ايمبلد", "💫", true)
       .addField("ارسال إلى الخاص", "📨", true)
@@ -116,6 +116,7 @@ client.on("message", async message => {
 
     message.channel.send(embed).then(m => {
       m.react("👥")
+        .then(() => m.react("🤩"))
         .then(() => m.react("🌐"))
         .then(() => m.react("💫"))
         .then(() => m.react("📨"))
@@ -123,6 +124,8 @@ client.on("message", async message => {
 
       let allFilter = (reaction, user) =>
         reaction.emoji.name == "👥" && user.id == message.author.id;
+      let al2Filter = (reaction, user) =>
+        reaction.emoji.name == "🤩" && user.id == message.author.id;
       let sendchanelFilter = (reaction, user) =>
         reaction.emoji.name == "🌐" && user.id == message.author.id;
       let sendchanesFilter = (reaction, user) =>
@@ -133,6 +136,7 @@ client.on("message", async message => {
         reaction.emoji.name == "❌" && user.id == message.author.id;
 
       let all = m.createReactionCollector(allFilter);
+      let al2 = m.createReactionCollector(al2Filter);
       let sendchanel = m.createReactionCollector(sendchanelFilter);
       let sendchanes = m.createReactionCollector(sendchanesFilter);
       let senddm = m.createReactionCollector(senddmFilter);
@@ -166,6 +170,25 @@ client.on("message", async message => {
             );
 
           member.sendEmbed(bc);
+          console.log("There is someone using the command: bc");
+        });
+      });
+      al2.on("collect", v => {
+        m.delete();
+        message.channel
+          .sendMessage("", {
+            embed: {
+              title: `تم ارسال رسالتك:ballot_box_with_check:   ... محتوى الرسالة هو : **${args}**  :arrow_right: `,
+              description: ` وعدد مستلمين الرسالة: **${message.guild.memberCount}**:busts_in_silhouette:`,
+              color: 3003135,
+              footer: {}
+            }
+          })
+          .then(msg => {
+            msg.delete(10000);
+          });
+        message.guild.members.forEach(member => {
+          message.channel.send(args);
           console.log("There is someone using the command: bc");
         });
       });
