@@ -46,6 +46,7 @@ client.login(TOKEN);
 const queue = new Map();
 var table = require("table").table;
 const Discord = require("discord.js");
+var tm = readline.createInterface(process.stdin, process.stdout);
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag} By RYO!`);
 });
@@ -95,15 +96,15 @@ client.on("message", async message => {
     if (!args) {
       return message.reply("**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**");
     }
-    message.channel
+    message.channel;
     let embed = new Discord.RichEmbed()
       .setColor("#ff0000")
-      .setTitle("يجب عليك كتابة كحتوى الرسالة")
+      .setTitle(`الرسالة هي : **${args}** `)
       .setDescription()
-      .addField("cmd", `**brodcast**: \`${CMD1}\``)
-      .addField("cmd", `**brodcast**: \`${CMD1}\``)
-      .addField("cmd", `**brodcast**: \`${CMD1}\``)
-      .addField("إلغاء الرسالة", "❌")
+      .addField("ارسال إلى جميع الاعضاء", "👥", true)
+      .addField("ارسال إلى هذا الروم", "🌐", true)
+      .addField("ارسال إلى الخاص", "📨", true)
+      .addField("إلغاء الرسالة", "❌", true)
       .setThumbnail(
         "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       )
@@ -112,71 +113,73 @@ client.on("message", async message => {
         "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
       );
 
-    message.channel.send(embed)
-      .then(m => {
-        m.react("👥").then(() => m.react("🌐")).then(() => m.react("📨")).then(() => m.react("❌"));
+    message.channel.send(embed).then(m => {
+      m.react("👥")
+        .then(() => m.react("🌐"))
+        .then(() => m.react("📨"))
+        .then(() => m.react("❌"));
 
-        let allFilter = (reaction, user) =>
-          reaction.emoji.name == "👥" && user.id == message.author.id;
-        let sendchanelFilter = (reaction, user) =>
-          reaction.emoji.name == "🌐" && user.id == message.author.id;
-        let senddmFilter = (reaction, user) =>
-          reaction.emoji.name == "📨" && user.id == message.author.id;
-        let noFiler = (reaction, user) =>
-          reaction.emoji.name == "❌" && user.id == message.author.id;
+      let allFilter = (reaction, user) =>
+        reaction.emoji.name == "👥" && user.id == message.author.id;
+      let sendchanelFilter = (reaction, user) =>
+        reaction.emoji.name == "🌐" && user.id == message.author.id;
+      let senddmFilter = (reaction, user) =>
+        reaction.emoji.name == "📨" && user.id == message.author.id;
+      let noFiler = (reaction, user) =>
+        reaction.emoji.name == "❌" && user.id == message.author.id;
 
-        let all = m.createReactionCollector(allFilter);
-        let senddm = m.createReactionCollector(senddmFilter);
-        let sendchanel = m.createReactionCollector(sendchanelFilter);
-        let no = m.createReactionCollector(noFiler);
+      let all = m.createReactionCollector(allFilter);
+      let senddm = m.createReactionCollector(senddmFilter);
+      let sendchanel = m.createReactionCollector(sendchanelFilter);
+      let no = m.createReactionCollector(noFiler);
 
-        all.on("collect", v => {
-          m.delete();
-          message.channel
-            .sendMessage("", {
-              embed: {
-                title: `تم ارسال رسالتك:ballot_box_with_check:   ... محتوى الرسالة هو : **${args}**  :arrow_right: `,
-                description: ` وعدد مستلمين الرسالة: **${message.guild.memberCount}**:busts_in_silhouette:`,
-                color: 3003135,
-                footer: {}
-              }
-            })
-            .then(msg => {
-              msg.delete(10000);
-            });
-          message.guild.members.forEach(member => {
-            let bc = new Discord.RichEmbed()
-              .setColor(colorbc)
-              .setThumbnail(serverlogo) //message.guild.iconURL
-              .setAuthor(message.author.username, message.author.user)
-              .addField("● From", message.guild.name, true)
-              .addField("● TO", `<@${member.user.id}>`, true)
-              .addField(":mega:Message", args)
-              .setFooter(
-                "Made By Store 69",
-                "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
-              );
-
-            member.sendEmbed(bc);
-            console.log("There is someone using the command: bc");
+      all.on("collect", v => {
+        m.delete();
+        message.channel
+          .sendMessage("", {
+            embed: {
+              title: `تم ارسال رسالتك:ballot_box_with_check:   ... محتوى الرسالة هو : **${args}**  :arrow_right: `,
+              description: ` وعدد مستلمين الرسالة: **${message.guild.memberCount}**:busts_in_silhouette:`,
+              color: 3003135,
+              footer: {}
+            }
+          })
+          .then(msg => {
+            msg.delete(10000);
           });
-        });
-        no.on("collect", v => {
-          m.delete();
-          message.channel
-            .sendMessage("", {
-              embed: {
-                title: `تم إلغاء رسالتك:x:`,
-                description: ` محتوى الرسالة هو : **${args}**  :arrow_right: `,
-                color: 16711680,
-                footer: {}
-              }
-            })
-            .then(msg => {
-              msg.delete(10000);
-            });
+        message.guild.members.forEach(member => {
+          let bc = new Discord.RichEmbed()
+            .setColor(colorbc)
+            .setThumbnail(serverlogo) //message.guild.iconURL
+            .setAuthor(message.author.username, message.author.user)
+            .addField("● From", message.guild.name, true)
+            .addField("● TO", `<@${member.user.id}>`, true)
+            .addField(":mega:Message", args)
+            .setFooter(
+              "Made By Store 69",
+              "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
+            );
+
+          member.sendEmbed(bc);
+          console.log("There is someone using the command: bc");
         });
       });
+      no.on("collect", v => {
+        m.delete();
+        message.channel
+          .sendMessage("", {
+            embed: {
+              title: `تم إلغاء رسالتك:x:`,
+              description: ` محتوى الرسالة هو : **${args}**  :arrow_right: `,
+              color: 16711680,
+              footer: {}
+            }
+          })
+          .then(msg => {
+            msg.delete(10000);
+          });
+      });
+    });
   }
 });
 
