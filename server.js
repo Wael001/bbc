@@ -96,21 +96,41 @@ client.on("message", async message => {
       return message.reply("**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**");
     }
     message.channel
-      .send(
-        `**هل أنت متأكد من إرسالك البرودكاست؟\nمحتوى البرودكاست: \`${args}\`**`
+    let embed = new Discord.RichEmbed()
+      .setColor("#ff0000")
+      .setTitle("يجب عليك كتابة كحتوى الرسالة")
+      .setDescription()
+      .addField("cmd", `**brodcast**: \`${CMD1}\``)
+      .addField("cmd", `**brodcast**: \`${CMD1}\``)
+      .addField("cmd", `**brodcast**: \`${CMD1}\``)
+      .addField("إلغاء الرسالة", "❌")
+      .setThumbnail(
+        "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       )
-      .then(m => {
-        m.react("✅").then(() => m.react("❌"));
+      .setFooter(
+        "Made By Store 69",
+        "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
+      );
 
-        let yesFilter = (reaction, user) =>
-          reaction.emoji.name == "✅" && user.id == message.author.id;
+    message.channel.send(embed)
+      .then(m => {
+        m.react("👥").then(() => m.react("🌐")).then(() => m.react("📨")).then(() => m.react("❌"));
+
+        let allFilter = (reaction, user) =>
+          reaction.emoji.name == "👥" && user.id == message.author.id;
+        let sendchanelFilter = (reaction, user) =>
+          reaction.emoji.name == "🌐" && user.id == message.author.id;
+        let senddmFilter = (reaction, user) =>
+          reaction.emoji.name == "📨" && user.id == message.author.id;
         let noFiler = (reaction, user) =>
           reaction.emoji.name == "❌" && user.id == message.author.id;
 
-        let yes = m.createReactionCollector(yesFilter);
+        let all = m.createReactionCollector(allFilter);
+        let senddm = m.createReactionCollector(senddmFilter);
+        let sendchanel = m.createReactionCollector(sendchanelFilter);
         let no = m.createReactionCollector(noFiler);
 
-        yes.on("collect", v => {
+        all.on("collect", v => {
           m.delete();
           message.channel
             .sendMessage("", {
