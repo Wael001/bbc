@@ -198,6 +198,22 @@ client.on("message", async message => {
         message.channel.sendEmbed(say);
         message.delete();
       });
+            sendchanel.on("collect", v => {
+        m.delete();
+        message.channel
+          .sendMessage("", {
+            embed: {
+              title: `تم ارسال رسالتك`,
+              description: ``,
+              color: 3003135,
+              footer: {}
+            }
+          })
+          .then(msg => {
+            msg.delete(10000);
+          });
+        
+      });
       no.on("collect", v => {
         m.delete();
         message.channel
