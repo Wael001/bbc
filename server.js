@@ -163,24 +163,21 @@ client.on("message", async message => {
           console.log("There is someone using the command: bc");
         });
       });
-      no.on("collect", v => {
-        var readline = require('readline');
-        var tm = readline.createInterface(process.stdin, process.stdout);
-        var sleep = require('system-sleep');
-   console.log(`Statistiques globales : \n\nThe bot have a total of ${Client.guilds.size} servers. \nFor a total of ${Client.users.size} members. \n\nMessage :\n\u001b[36m${messagetsend}\u001b[0m\n\n\n `)
-   tm.question('\u001b[0mTape \u001b[32mENTER \u001b[0mfor launch UnturnedDM\n\n', (answer) => {
-      dmed = "0"
-      Client.users.forEach((member) => {
-         dmed++
-         sleep(timeout);
-         member.send(messagetsend).catch(O_o => {})
-         console.log("\u001b[31;1m[" + dmed + "/" + Unturned.users.size + "]\u001b[37m Message sended to \u001b[36m" + member.username + "#" + member.discriminator)
-         if (dmed == Client.users.size) {
-            console.log("\u001b[32mUnturnedDM finished succesfully ! \nKeep the bot on so that it finishes 100%")
-         }
-      })
-   })
-  });
+      senddm.on("collect", v => {
+        if (!message.member.hasPermission("ADMINISTRATOR")) return;
+        message.guild.members
+          .filter(m => m.presence.status !== "offline")
+          .forEach(m => {
+            m.send(`${args}\n ${m}`);
+          });
+        message.channel.send(
+          `\`${
+            message.guild.members.filter(m => m.presence.status !== "online")
+              .size
+          }\` (**__MESSAGE__** *has been* **DM'ed** *to @everyone* | ✅ `
+        );
+        message.delete();
+      });
       no.on("collect", v => {
         m.delete();
         message.channel
