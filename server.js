@@ -112,7 +112,7 @@ client.on("message", async message => {
         "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
       );
 
-    message.channel.send(embed).then(m => {
+    message.channel.send(embed).then(m => { 
       m.react("👥")
         .then(() => m.react("🌐"))
         .then(() => m.react("📨"))
@@ -163,19 +163,26 @@ client.on("message", async message => {
           console.log("There is someone using the command: bc");
         });
       });
-      senddm.on("collect", v => {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return;
-        message.guild.members
-          .filter(m => m.presence.status !== "offline")
-          .forEach(m => {
-            m.send(`${args}\n ${m}`);
-          });
-        message.channel.send(
-          `\`${
-            message.guild.members.filter(m => m.presence.status !== "online")
-              .size
-          }\` (**__MESSAGE__** *has been* **DM'ed** *to @everyone* | ✅ `
-        );
+      sendchanel.on("collect", v => {
+        if (!message.channel.guild)
+          return message.channel
+            .send("**هذا الأمر فقط للسيرفرات**")
+            .then(m => m.delete(5000));
+        if (!message.member.hasPermission("ADMINISTRATOR"))
+          return message.channel.send(
+            "**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`"
+          );
+        let say = new Discord.RichEmbed()
+          .setColor("RANDOM")
+          .setTitle()
+          .setDescription(args)
+          .setThumbnail(message.author.avatarURL)
+          .setFooter(
+            "mad by「ryo」シ#7987",
+            "https://cdn.discordapp.com/avatars/557657031713095705/9617e32d32b5654d6ec87b899afb2c9c.png?size=2048"
+          );
+
+        message.channel.sendEmbed(say);
         message.delete();
       });
       no.on("collect", v => {
@@ -194,6 +201,7 @@ client.on("message", async message => {
           });
       });
     });
+    
   }
 });
 
