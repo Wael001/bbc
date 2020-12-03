@@ -102,8 +102,8 @@ client.on("message", async message => {
       .setDescription()
       .addField("ارسال إلى جميع الاعضاء", "👥", true)
       .addField("ارسال إلى هذا الروم", "🌐", true)
-      .addField("ارسال إلى الخاص", "📨", true)
-      .addField("إلغاء الرسالة", "❌", true)
+      .addField("ارسال إلى الخاص", "📨", false)
+      .addField("إلغاء الرسالة", "❌", false)
       .setThumbnail(
         "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       )
@@ -112,7 +112,7 @@ client.on("message", async message => {
         "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
       );
 
-    message.channel.send(embed).then(m => { 
+    message.channel.send(embed).then(m => {
       m.react("👥")
         .then(() => m.react("🌐"))
         .then(() => m.react("📨"))
@@ -164,6 +164,19 @@ client.on("message", async message => {
         });
       });
       sendchanel.on("collect", v => {
+        m.delete();
+        message.channel
+          .sendMessage("", {
+            embed: {
+              title: `تم ارسال رسالتك`,
+              description: ``,
+              color: 3003135,
+              footer: {}
+            }
+          })
+          .then(msg => {
+            msg.delete(10000);
+          });
         if (!message.channel.guild)
           return message.channel
             .send("**هذا الأمر فقط للسيرفرات**")
@@ -201,7 +214,6 @@ client.on("message", async message => {
           });
       });
     });
-    
   }
 });
 
