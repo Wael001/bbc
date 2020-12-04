@@ -188,7 +188,7 @@ client.on("message", async message => {
             msg.delete(10000);
           });
         message.guild.members.forEach(member => {
-          message.channel.send(args);
+          member.send(args);
           console.log("There is someone using the command: bc");
         });
       });
@@ -216,8 +216,8 @@ client.on("message", async message => {
           );
         let say = new Discord.RichEmbed()
           .setColor("RANDOM")
-          .setTitle()
-          .setDescription(args)
+          .setTitle(args)
+          .setDescription("**Message🔼**")
           .setThumbnail(message.author.avatarURL)
           .setFooter(
             "mad by「ryo」シ#7987",
