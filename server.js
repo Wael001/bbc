@@ -19,6 +19,9 @@ const {
   serverlogo,
   nameproject,
   colorbc,
+  reactromm,
+  reactro1mm,
+  reactro2mm,
   CMD1
 } = require("./config");
 const client = new Client({ disableEveryone: true });
@@ -271,12 +274,12 @@ client.on("message", async message => {
   }
 });
 
-let channelID = "728040983794810940";
+let channelID = reactromm;
 
 client.on("message", async message => {
   if (message.channel.id === channelID) {
-    message.react(":69:781249021225598986");
-    message.react("💕");
+    message.react(reactro1mm);
+    message.react(reactro2mm);
   }
 });
 
