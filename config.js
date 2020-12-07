@@ -1,7 +1,7 @@
 module.exports = {
   TOKEN: "Nzc3OTE1MjQ0MTgxODQ4MDg0.X7KYBw.QywoZKqkWd3eVKVHZHArxBAFW8g", //توكن بوتك
   prefix: "-", //بادئة البوت
-  CMD1: "bc", // الكود حق البوت
+  CMD1: "send", // الكود حق البوت
   nameproject: "index.js", //اسم البروجكت
   colorbc: "RANDOM", // هنا لون البرود كاست
   reactromm: "784221083153727488", // حط ايدي الروم حق الرياكشن
