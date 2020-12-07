@@ -107,7 +107,6 @@ client.on("message", async message => {
       .addField("ارسال إلى جميع الاعضاء بدون ايمبلد", "🤩", true)
       .addField("ارسال إلى هذا الروم", "🌐", true)
       .addField("ارسال إلى هذا الروم بدون ايمبلد", "💫", true)
-      .addField("ارسال إلى الخاص", "📨", true)
       .addField("إلغاء الرسالة", "❌", true)
       .setThumbnail(
         "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
@@ -122,7 +121,6 @@ client.on("message", async message => {
         .then(() => m.react("🤩"))
         .then(() => m.react("🌐"))
         .then(() => m.react("💫"))
-        .then(() => m.react("📨"))
         .then(() => m.react("❌"));
 
       let allFilter = (reaction, user) =>
@@ -133,8 +131,6 @@ client.on("message", async message => {
         reaction.emoji.name == "🌐" && user.id == message.author.id;
       let sendchanesFilter = (reaction, user) =>
         reaction.emoji.name == "💫" && user.id == message.author.id;
-      let senddmFilter = (reaction, user) =>
-        reaction.emoji.name == "📨" && user.id == message.author.id;
       let noFiler = (reaction, user) =>
         reaction.emoji.name == "❌" && user.id == message.author.id;
 
@@ -142,7 +138,6 @@ client.on("message", async message => {
       let al2 = m.createReactionCollector(al2Filter);
       let sendchanel = m.createReactionCollector(sendchanelFilter);
       let sendchanes = m.createReactionCollector(sendchanesFilter);
-      let senddm = m.createReactionCollector(senddmFilter);
       let no = m.createReactionCollector(noFiler);
 
       all.on("collect", v => {
