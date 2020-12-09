@@ -112,8 +112,7 @@ client.on("message", async message => {
         "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       )
       .setFooter(
-        "Made By Store 69",
-        "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
+            "Devloper ryo",
       );
 
     message.channel.send(embed).then(m => {
@@ -163,8 +162,7 @@ client.on("message", async message => {
             .addField("● TO", `<@${member.user.id}>`, true)
             .addField(":mega:Message", args)
             .setFooter(
-              "Made By Store 69",
-              "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
+            "Devloper ryo",
             );
 
           member.sendEmbed(bc);
@@ -218,8 +216,7 @@ client.on("message", async message => {
           .setDescription("**Message🔼**")
           .setThumbnail(message.author.avatarURL)
           .setFooter(
-            "mad by「ryo」シ#7987",
-            "https://cdn.discordapp.com/avatars/557657031713095705/9617e32d32b5654d6ec87b899afb2c9c.png?size=2048"
+            "Devloper ryo",
           );
 
         message.channel.sendEmbed(say);

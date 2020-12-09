@@ -4,7 +4,7 @@ module.exports = {
   CMD1: "send", // الكود حق البوت
   nameproject: "index.js", //اسم البروجكت
   colorbc: "RANDOM", // هنا لون البرود كاست
-  reactromm: "784221083153727488", // حط ايدي الروم حق الرياكشن
+  reactromm: "786161213679468564", // حط ايدي الروم حق الرياكشن
   reactro1mm: ":joy:", // حط الرياكشن
   reactro2mm: "", // حط الرياكشن
   serverlogo:
