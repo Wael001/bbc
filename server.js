@@ -44,16 +44,16 @@ const developers = ["557657031713095705"];
 client.on("message", message => {
   if (message.content.startsWith(prefix + "help")) {
     let embed = new Discord.RichEmbed()
-      .setColor("#ff0000")
-      .setTitle("Bot Fivem brodcast")
+      .setColor("#0ca9ff")
+      .setTitle("brodcast-v1-by-ryo")
       .setDescription(`\`My Prefix (${prefix})\``)
       .addField("cmd", `**brodcast**: \`${CMD1}\``)
       .setThumbnail(
-        "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
+        "https://www.emoji.co.uk/files/twitter-emojis/objects-twitter/11055-open-book.png"
       )
       .setFooter(
-        "Made By Store 69",
-        "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
+        "devloper ! Ryo#7984",
+        "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
       );
 
     message.channel.send(embed);
@@ -140,8 +140,8 @@ client.on("message", async message => {
             .addField("● TO", `<@${member.user.id}>`, true)
             .addField(":mega:Message", args)
             .setFooter(
-              "Made By Store 69",
-              "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
+              "devloper ! Ryo#7984",
+              "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
             );
 
           member.sendEmbed(bc);
@@ -195,8 +195,8 @@ client.on("message", async message => {
           .setDescription("**Message🔼**")
           .setThumbnail(message.author.avatarURL)
           .setFooter(
-            "mad by「ryo」シ#7987",
-            "https://cdn.discordapp.com/avatars/557657031713095705/9617e32d32b5654d6ec87b899afb2c9c.png?size=2048"
+            "devloper ! Ryo#7984",
+            "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
           );
 
         message.channel.sendEmbed(say);
