@@ -10,7 +10,7 @@ setInterval(() => {
   http.get(`https://${nameproject}.glitch.me/`);
 }, 280000);
 
-// كل البكجات الي ممكن تحتجها في اي بوت
+//pkg
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
 const {
@@ -103,17 +103,17 @@ client.on("message", async message => {
       .setColor("#ff0000")
       .setTitle(`الرسالة هي : **${args}** `)
       .setDescription()
-      .addField("ارسال إلى جميع الاعضاء", "👥", true)
-      .addField("ارسال إلى جميع الاعضاء بدون ايمبلد", "🤩", true)
-      .addField("ارسال إلى هذا الروم", "🌐", true)
-      .addField("ارسال إلى هذا الروم بدون ايمبلد", "💫", true)
-      .addField("إلغاء الرسالة", "❌", true)
+      .addField("Send to all members", "👥", true)
+      .addField("Send to all members without embld", "🤩", true)
+      .addField("Send to this channel", "🌐", true)
+      .addField("Send to this channel without embld", "💫", true)
+      .addField("Cancel the message", "❌", true)
       .setThumbnail(
         "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       )
       .setFooter(
-        "Made By Store 69",
-        "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
+        "devloper ! Ryo#7984",
+        "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
       );
 
     message.channel.send(embed).then(m => {
@@ -277,9 +277,6 @@ client.on("message", async message => {
     message.react(reactro2mm);
   }
 });
-
-
-
 
 console.log("Bot is Online ");
 ///
