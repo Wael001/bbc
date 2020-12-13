@@ -76,7 +76,7 @@ client.on("message", message => {
       )
       .setFooter(
         "Made By Store 69",
-        "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
+        "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
       );
 
     message.channel.send(embed);
@@ -100,39 +100,37 @@ client.on("message", async message => {
     }
     message.channel;
     let embed = new Discord.RichEmbed()
-      .setColor("#ff0000")
+      .setColor("#0ca9ff")
       .setTitle(`message: **${args}** `)
-      .setDescription(
-        "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ main ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
-      )
-      .addField("Send to all members", "👥", true)
-      .addField("Send to all members without embld", "🤩", true)
-      .addField("Send to this channel", "🌐", true)
-      .addField("Send to this channel without embld", "💫", true)
+      .setDescription("▬▬▬▬▬▬▬▬▬▬ main ▬▬▬▬▬▬▬▬▬▬")
+      .addField("Send to all members", "1️⃣", true)
+      .addField("Send to all members without embld", "2️⃣", true)
+      .addField("Send to this channel", "3️⃣", true)
+      .addField("Send to this channel without embld", "4️⃣", true)
       .addField("Cancel the message", "❌", true)
       .setThumbnail(
-        "http://www.emoji.co.uk/files/mozilla-emojis/objects-mozilla/11958-open-book.png"
+        "https://www.emoji.co.uk/files/twitter-emojis/objects-twitter/11055-open-book.png"
       )
       .setFooter(
         "devloper ! Ryo#7984",
-        "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
+        "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
       );
 
     message.channel.send(embed).then(m => {
-      m.react("👥")
-        .then(() => m.react("🤩"))
-        .then(() => m.react("🌐"))
-        .then(() => m.react("💫"))
+      m.react("1️⃣")
+        .then(() => m.react("2️⃣"))
+        .then(() => m.react("3️⃣"))
+        .then(() => m.react("4️⃣"))
         .then(() => m.react("❌"));
 
       let allFilter = (reaction, user) =>
-        reaction.emoji.name == "👥" && user.id == message.author.id;
+        reaction.emoji.name == "1️⃣" && user.id == message.author.id;
       let al2Filter = (reaction, user) =>
-        reaction.emoji.name == "🤩" && user.id == message.author.id;
+        reaction.emoji.name == "2️⃣" && user.id == message.author.id;
       let sendchanelFilter = (reaction, user) =>
-        reaction.emoji.name == "🌐" && user.id == message.author.id;
+        reaction.emoji.name == "3️⃣" && user.id == message.author.id;
       let sendchanesFilter = (reaction, user) =>
-        reaction.emoji.name == "💫" && user.id == message.author.id;
+        reaction.emoji.name == "4️⃣" && user.id == message.author.id;
       let noFiler = (reaction, user) =>
         reaction.emoji.name == "❌" && user.id == message.author.id;
 
