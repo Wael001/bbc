@@ -101,8 +101,10 @@ client.on("message", async message => {
     message.channel;
     let embed = new Discord.RichEmbed()
       .setColor("#ff0000")
-      .setTitle(`الرسالة هي : **${args}** `)
-      .setDescription()
+      .setTitle(`message: **${args}** `)
+      .setDescription(
+        "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ main ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
+      )
       .addField("Send to all members", "👥", true)
       .addField("Send to all members without embld", "🤩", true)
       .addField("Send to this channel", "🌐", true)
@@ -113,7 +115,7 @@ client.on("message", async message => {
       )
       .setFooter(
         "devloper ! Ryo#7984",
-        "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
+        "https://cdn.discordapp.com/attachments/730228438043983973/777671948225740850/69.png"
       );
 
     message.channel.send(embed).then(m => {
