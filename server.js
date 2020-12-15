@@ -135,7 +135,7 @@ client.on("message", async message => {
           let bc = new Discord.RichEmbed()
             .setColor(colorbc)
             .setThumbnail(serverlogo) //message.guild.iconURL
-            .setAuthor(message.author.username, message.author.user)
+            .setAuthor(message.author.username, message.author.AvatarURL)
             .addField("● From", message.guild.name, true)
             .addField("● TO", `<@${member.user.id}>`, true)
             .addField(":mega:Message", args)
