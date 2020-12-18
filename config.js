@@ -7,15 +7,15 @@
 //|_|  \_\ |_|  \____/           |_____/|______|_| \_|_____/               \/    |_|
 
 module.exports = {
-  TOKEN: "", //توكن بوتك
-  prefix: "", //بادئة البوت
-  CMD1: "", // الامر حق البوت
-  nameproject: "brodcast-v1-by-ryo", //اسم البروجكت
+  TOKEN: "NzA1NjY2NTg1NzIwNzgyODY5.XqvBOA.ZK6wCI3zH9JxMK8wZ9-Gab6LBLc", //توكن بوتك
+  prefix: "-", //بادئة البوت
+  CMD1: "bc", // الامر حق البوت
+  nameproject: "fdjiodfjhgiodfhgiodfhgiofdhigofdhigdfhifdhigidfhgo", //اسم البروجكت
   colorbc: "RANDOM", // هنا لون البرود كاست
   reactromm: "", // حط ايدي الروم حق الرياكشن
   reactro1mm: "", // حط الرياكشن
   reactro2mm: "", // حط الرياكشن
-  serverlogo: "" // حط شعار سيرفرك وبس
+  serverlogo: "https://cdn.discordapp.com/icons/754640454598787103/a_4766451f7cc4af28b9f1a4368d0bfc07.gif?size=1024" // حط شعار سيرفرك وبس
 };
 // _______     ______              _____ ______ _   _ _____            __      ____
 //|  __ \ \   / / __ \            / ____|  ____| \ | |  __ \           \ \    / /_ |
