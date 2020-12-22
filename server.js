@@ -39,7 +39,7 @@ client.on("guildCreate", guild => {
   guild.owner.send(embed);
 });
 
-const developers = ["557657031713095705"];
+const developers = ["371322321065213952"];
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "help")) {
@@ -49,11 +49,11 @@ client.on("message", message => {
       .setDescription(`\`My Prefix (${prefix})\``)
       .addField("cmd", `**brodcast**: \`${CMD1}\``)
       .setThumbnail(
-        "https://www.emoji.co.uk/files/twitter-emojis/objects-twitter/11055-open-book.png"
+        "https://cdn.discordapp.com/icons/754640454598787103/a_4766451f7cc4af28b9f1a4368d0bfc07.gif?size=1024"
       )
       .setFooter(
-        "devloper ! Ryo#7984",
-        "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
+        "devloper Mody#2003",
+        "https://cdn.discordapp.com/avatars/371322321065213952/a_baf60d7ea7ef9b3858fde8a31d2b8901.gif?size=1024"
       );
 
     message.channel.send(embed);
@@ -86,11 +86,11 @@ client.on("message", async message => {
       .addField("Send to this channel without embld", "4️⃣", true)
       .addField("Cancel the message", "❌", true)
       .setThumbnail(
-        "https://www.emoji.co.uk/files/twitter-emojis/objects-twitter/11055-open-book.png"
+        "https://cdn.discordapp.com/icons/754640454598787103/a_4766451f7cc4af28b9f1a4368d0bfc07.gif?size=1024"
       )
       .setFooter(
-        "devloper ! Ryo#7984",
-        "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
+        "devloper Mody#2003",
+        "https://cdn.discordapp.com/avatars/371322321065213952/a_baf60d7ea7ef9b3858fde8a31d2b8901.gif?size=1024"
       );
 
     message.channel.send(embed).then(m => {
@@ -140,8 +140,8 @@ client.on("message", async message => {
             .addField("● TO", `<@${member.user.id}>`, true)
             .addField(":mega:Message", args)
             .setFooter(
-              "devloper ! Ryo#7984",
-              "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
+              "devloper Mody#2003",
+              "https://cdn.discordapp.com/avatars/371322321065213952/a_baf60d7ea7ef9b3858fde8a31d2b8901.gif?size=1024"
             );
 
           member.sendEmbed(bc);
@@ -195,8 +195,8 @@ client.on("message", async message => {
           .setDescription("**Message🔼**")
           .setThumbnail(message.author.avatarURL)
           .setFooter(
-            "devloper ! Ryo#7984",
-            "https://cdn.discordapp.com/attachments/770996046792228884/785548892438659092/1d2ef3d18980805518eab3a6ad612b04.png"
+            "devloper Mody#2003",
+            "https://cdn.discordapp.com/avatars/371322321065213952/a_baf60d7ea7ef9b3858fde8a31d2b8901.gif?size=1024"
           );
 
         message.channel.sendEmbed(say);
