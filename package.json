@@ -33,7 +33,7 @@
     "dateformat": "^3.0.3",
     "discord-anti-spam": "^2.1.1",
     "discord.js": "^11.5.1",
-    "express": "^4.17.1",
+    "express": "^4.22.1",
     "ffmpeg": "^0.0.4",
     "better-sqlite-pool": "^0.2.2",
     "guild": "^1.2.2",
